@@ -31,6 +31,8 @@ print(message)
 
 #assert "asjcgjgc" in message
 
+
+
 driver.find_element(By.ID,"inlineRadio1").click()
 driver.find_element(By.XPATH,"//input[@class='ng-untouched ng-pristine ng-valid']").clear()
 
