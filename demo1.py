@@ -18,7 +18,6 @@ driver=webdriver.Chrome(service=service_obj)
 # service_obj=Service("C:/Users/NAYEEM/Downloads/SEL/msedgedriver.exe")
 # driver=webdriver.Edge(service=service_obj)
 
-
 driver.get("https://rahulshettyacademy.com/angularpractice/")
 driver.maximize_window()
 driver.find_element(By.NAME,"name").send_keys("Nayeem")
