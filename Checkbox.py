@@ -25,11 +25,13 @@ for checkbox in checkboxes:
         assert checkbox.is_selected()
         break
 
+
 #RadioButtons
 radiobuttons = driver.find_elements(By.XPATH,"//input[@type='radio']")
 print(len(radiobuttons))
 radiobuttons[2].click()
 assert radiobuttons[2].is_selected()
+
 
 #hide_show textbox
 assert driver.find_element(By.ID,"displayed-text").is_displayed()
@@ -37,6 +39,15 @@ driver.find_element(By.ID,"hide-textbox").click()
 assert not driver.find_element(By.ID,"displayed-text").is_displayed()
 
 
-
+#alertbox
+name="amigo"
+driver.find_element(By.XPATH,"//input[@id='name']").send_keys(name)
+driver.find_element(By.ID,"alertbtn").click()
+alert=driver.switch_to.alert
+alertText = alert.text
+assert name in alertText
+print(alertText)
+alert.accept()
+#alert.dismiss()
 
 
