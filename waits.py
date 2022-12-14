@@ -12,6 +12,7 @@ driver=webdriver.Chrome(service=service_obj)
 driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
 driver.maximize_window()
 
+#searching_items
 driver.find_element(By.CLASS_NAME,"search-keyword").send_keys("s")
 assert driver.find_element(By.CLASS_NAME,"search-keyword").get_attribute("value") == "s"
 time.sleep(2)
