@@ -12,3 +12,4 @@ driver.maximize_window()
 driver.find_element(By.ID,"userEmail").send_keys("nayeem0772@gmail.com")
 driver.find_element(By.CSS_SELECTOR,"#userPassword").send_keys("N4yeem@552")
 driver.find_element(By.CLASS_NAME,"forgot-password-link").click()
+

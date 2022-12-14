@@ -2,6 +2,7 @@ from selenium import webdriver
 
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 
 # from selenium.webdriver.firefox.service import Service
 # from selenium.webdriver.edge.service import Service
@@ -30,10 +31,15 @@ print(message)
 
 #assert "asjcgjgc" in message
 
-
-
 driver.find_element(By.ID,"inlineRadio1").click()
 driver.find_element(By.XPATH,"//input[@class='ng-untouched ng-pristine ng-valid']").clear()
+
+#static_dropdown
+
+dropdown = Select(driver.find_element(By.ID,"exampleFormControlSelect1"))
+dropdown.select_by_index(0)
+#dropdown.select_by_visible_text("Male")
+#dropdown.select_by_value()
 
 
 
