@@ -24,3 +24,7 @@ for country in countries:
     if country.text == "India":
         country.click()
         break
+
+print(driver.find_element(By.ID,"autosuggest").get_attribute("value"))
+
+assert driver.find_element(By.ID,"autosuggest").get_attribute("value") == "BASIndia"
