@@ -36,7 +36,6 @@ driver.switch_to.window(WindowsOpened[0])
 driver.find_element(By.CSS_SELECTOR,"#username").send_keys(s[4])
 driver.find_element(By.XPATH,"//input[@id='password']").send_keys("Nayeem123")
 driver.find_element(By.XPATH,"//label[2]//span[2]").click()
-
 time.sleep(2)
 
 driver.find_element(By.CSS_SELECTOR,"#okayBtn").click()
