@@ -6,7 +6,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-
+expectedList = ['Cucumber - 1 Kg', 'Raspberry - 1/4 Kg', 'Strawberry - 1/4 Kg']
+actualList =[]
 #from selenium.webdriver.support.select import Select
 
 service_obj=Service("C:/Users/NAYEEM/Downloads/SEL/chromedriver.exe")
@@ -17,8 +18,8 @@ driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
 driver.maximize_window()
 
 #searching_items
-driver.find_element(By.CLASS_NAME,"search-keyword").send_keys("b")
-assert driver.find_element(By.CLASS_NAME,"search-keyword").get_attribute("value") == "b"
+driver.find_element(By.CLASS_NAME,"search-keyword").send_keys("ber")
+assert driver.find_element(By.CLASS_NAME,"search-keyword").get_attribute("value") == "ber"
 time.sleep(2)
 results = driver.find_elements(By.XPATH,"//div[@class='products']/div")
 count = len(results)
@@ -26,8 +27,10 @@ print(count)
 assert count > 0
 time.sleep(2)
 for result in results:
+    actualList.append(result.find_element(By.XPATH,"h4").text)
     result.find_element(By.XPATH,"div/button").click()
 
+assert expectedList == actualList
 
 driver.find_element(By.XPATH,"//header/div[1]/div[3]/a[4]/img[1]").click()
 
@@ -57,10 +60,16 @@ print(f"total price of the {sumitems} is {sum}")
 p = int(driver.find_element(By.CSS_SELECTOR, ".totAmt").text)
 assert p == sum
 
+
+DiscountPercentage = driver.find_element(By.CSS_SELECTOR,".discountPerc").text
+print(f"Discount applied : {DiscountPercentage}")
+
+DiscountAmount = float(driver.find_element(By.CSS_SELECTOR,".discountAmt").text)
+print(f"Discounted amount : {DiscountAmount}")
+assert sum > DiscountAmount
+
 driver.find_element(By.XPATH,"//button[text()='Place Order']").click()
 time.sleep(2)
-
-
 
 
 
